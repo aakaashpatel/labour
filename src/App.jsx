@@ -1,11 +1,17 @@
-import React from 'react'
+import React from "react";
+import Navbar from "./components/Navbar";
+import AppRoutes from "./routes/AppRoutes";
 
 const App = () => {
   return (
     <div>
-      <h1>Labour</h1>
+      <Navbar />
+      {/* Content ke liye top space (navbar fixed hai) */}
+      <div className="">
+        <AppRoutes />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
