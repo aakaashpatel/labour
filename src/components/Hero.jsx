@@ -33,7 +33,7 @@ const Hero = () => {
         {/* Buttons */}
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
-            to="/project"
+            to="/find-labour"
             className="group bg-white text-black px-8 py-4 rounded-2xl font-semibold text-lg 
                        flex items-center justify-center gap-3 hover:bg-gray-100 
                        active:scale-95 transition-all duration-300 shadow-xl w-full sm:w-auto"

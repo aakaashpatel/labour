@@ -5,6 +5,7 @@ import Project from "../pages/Project";
 import Contact from "../pages/Contact";
 import Collaboration from "../pages/Collaboration";
 import Signup from "../features/auth/Register";
+import FindLabour from "../components/FindLabour";
 
 const AppRoutes = () => {
   return (
@@ -15,6 +16,9 @@ const AppRoutes = () => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/collaboration" element={<Collaboration />} />
       <Route path="/signup" element={<Signup />} />
+
+      {/* find labour */}
+      <Route path="/find-labour" element={<FindLabour />} />
     </Routes>
   );
 };
