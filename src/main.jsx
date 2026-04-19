@@ -1,22 +1,18 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
-import './index.css'
-import App from './App.jsx'
-
-// Redux
-// import { Provider } from 'react-redux'
-// import { store } from './app/store'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
+import { Provider } from "react-redux";
+import { store } from "./app/store";
+import "./index.css";
 
 // i18n (agar setup karoge)
 // import './i18n'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <Provider store={store}>
     <BrowserRouter>
-      {/* <Provider store={store}> */}
-        <App />
-      {/* </Provider> */}
+      <App />
     </BrowserRouter>
-  </StrictMode>,
-)
+  </Provider>,
+);
