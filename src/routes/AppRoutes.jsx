@@ -6,6 +6,8 @@ import Contact from "../pages/Contact";
 import Collaboration from "../pages/Collaboration";
 import Signup from "../features/auth/Register";
 import FindLabour from "../components/FindLabour";
+import Login from "./pages/Login";
+import OtpVerify from "./pages/OtpVerify";
 
 const AppRoutes = () => {
   return (
@@ -19,6 +21,10 @@ const AppRoutes = () => {
 
       {/* find labour */}
       <Route path="/find-labour" element={<FindLabour />} />
+
+      {/* login / signUp /onborading page */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/verify-otp" element={<OtpVerify />} />
     </Routes>
   );
 };
