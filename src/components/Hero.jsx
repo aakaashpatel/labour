@@ -72,7 +72,7 @@ const Hero = () => {
             <div className="font-semibold text-2xl md:text-3xl text-white">
               0
             </div>
-            <div className="mt-1">Rating</div>
+            <div className="mt-1">User</div>
           </div>
         </div>
       </div>
