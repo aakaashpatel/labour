@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { HiArrowRight, HiShieldCheck, HiLightningBolt } from "react-icons/hi";
 
 const Login = () => {
   const [phone, setPhone] = useState("");
@@ -43,147 +44,136 @@ const Login = () => {
   }, [phone, isLoading]);
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
-      {/* Left Panel */}
-      <div className="hidden lg:flex w-5/12 bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-700 flex-col items-center justify-center p-12 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(at_30%_20%,rgba(255,255,255,0.12)_0%,transparent_60%)]" />
+    <div className="min-h-screen bg-white flex flex-col lg:flex-row overflow-hidden">
+      
+      {/* Left Panel - Branding & Security (Responsive: Hidden on small screens or shown at top) */}
+      <div className="hidden lg:flex w-[40%] bg-indigo-950 text-white flex-col justify-between p-16 relative overflow-hidden h-screen sticky top-0">
+        
+        {/* Glow Effects */}
+        <div className="absolute top-1/4 -left-20 w-80 h-80 bg-indigo-600/20 rounded-full blur-[100px] animate-pulse"></div>
+        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] animate-pulse delay-700"></div>
 
-        <div className="relative z-10 text-center">
-          <div className="w-20 h-20 bg-white/10 backdrop-blur-xl rounded-2xl flex items-center justify-center border border-white/20 mb-6 mx-auto">
-            <svg
-              className="w-10 h-10 text-white"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2.5}
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
-              />
-              <circle cx="9" cy="7" r="4" />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"
-              />
-            </svg>
+        <div className="relative z-10">
+          <Link to="/" className="flex items-center gap-3 mb-16 group">
+            <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-2xl group-hover:rotate-[10deg] transition-transform duration-500">
+               <span className="text-indigo-600 text-lg font-black tracking-tighter">HL</span>
+            </div>
+            <h1 className="text-3xl font-black tracking-tighter italic text-white flex flex-col">
+              HireLabour
+              <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest leading-none mt-1">Security First</span>
+            </h1>
+          </Link>
+
+          <h2 className="text-5xl font-black leading-[1.1] mb-8 italic tracking-tighter">
+            Access Your <br />
+            <span className="text-indigo-400">Professional Identity.</span>
+          </h2>
+          
+          <div className="space-y-6">
+            <div className="flex items-center gap-4 p-5 bg-white/5 rounded-[2rem] border border-white/5 hover:bg-white/10 transition-all cursor-default">
+               <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center">
+                  <HiShieldCheck className="text-white text-xl" />
+               </div>
+               <div>
+                  <p className="text-xs font-black text-indigo-200 uppercase tracking-widest">End-to-End</p>
+                  <p className="text-sm font-bold text-slate-100">Verified Credentials</p>
+               </div>
+            </div>
+            <div className="flex items-center gap-4 p-5 bg-white/5 rounded-[2rem] border border-white/5 hover:bg-white/10 transition-all cursor-default">
+               <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center">
+                  <HiLightningBolt className="text-white text-xl" />
+               </div>
+               <div>
+                  <p className="text-xs font-black text-indigo-200 uppercase tracking-widest">Rapid</p>
+                  <p className="text-sm font-bold text-slate-100">Instant Matching</p>
+               </div>
+            </div>
           </div>
+        </div>
 
-          <h1 className="text-white text-4xl font-semibold tracking-tight mb-2">
-            HireLabour
-          </h1>
-          <p className="text-purple-200 text-lg max-w-[260px]">
-            India's trusted platform for hiring daily wage workers
-          </p>
+        <div className="relative z-10 bg-white/5 p-8 rounded-[3rem] border border-white/10 text-center font-black text-sm tracking-widest uppercase italic text-indigo-300">
+          Scale your workforce today.
         </div>
       </div>
 
-      {/* Right Panel - Login Form */}
-      <div className="flex-1 flex items-center justify-center p-6 sm:p-8 bg-white min-h-screen">
-        <div className="w-full max-w-[340px]">
-          <h1 className="text-3xl font-semibold text-gray-900 mb-2 tracking-tight">
-            Welcome back
-          </h1>
-          <p className="text-gray-600 mb-8">
-            Enter your mobile number to receive a one-time password
-          </p>
-
-          {/* Phone Input */}
-          <div className="mb-6">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Mobile Number
-            </label>
-
-            <div className="relative">
-              <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 font-medium pointer-events-none">
-                +91
+      {/* Right Panel - Login Interaction */}
+      <div className="flex-1 flex flex-col items-center justify-center p-8 sm:p-20 bg-slate-50 min-h-screen relative">
+        
+        {/* Mobile Header (Visible only on small screens) */}
+        <div className="lg:hidden absolute top-8 left-8">
+           <Link to="/" className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-indigo-600 rounded-xl flex items-center justify-center">
+                 <span className="text-white text-[10px] font-black">HL</span>
               </div>
+              <span className="text-lg font-black text-slate-900 tracking-tighter">HireLabour</span>
+           </Link>
+        </div>
 
-              <input
-                type="tel"
-                inputMode="numeric"
-                placeholder="98765 43210"
-                value={phone}
-                onChange={handleChange}
-                className={`w-full pl-16 pr-5 py-4 text-lg border-2 rounded-2xl outline-none transition-all duration-200
-                  ${
-                    phone.length === 10
-                      ? "border-purple-600 focus:ring-4 focus:ring-purple-100"
-                      : "border-gray-200 focus:border-purple-500 focus:ring-4 focus:ring-purple-100"
-                  }`}
-                disabled={isLoading}
-                autoFocus
-              />
-            </div>
+        <div className="w-full max-w-[440px] animate-in fade-in slide-in-from-bottom-6 duration-1000">
+          <div className="bg-white p-10 sm:p-14 rounded-[4rem] shadow-[0_40px_100px_-20px_rgba(30,41,59,0.05)] border border-white relative overflow-hidden">
+             {/* Decorative Background for Card */}
+             <div className="absolute -top-10 -right-10 w-32 h-32 bg-indigo-50 rounded-full opacity-50"></div>
 
-            {/* Error Message */}
-            <div className="mt-2 min-h-[20px]">
-              <p className="text-sm text-red-600 font-medium">{error}</p>
-            </div>
+             <div className="relative z-10 text-center sm:text-left">
+                <h3 className="text-3xl font-black text-slate-900 mb-2 tracking-tighter">Welcome Back.</h3>
+                <p className="text-slate-400 font-bold mb-10 text-lg leading-snug italic">Enter your secure credentials.</p>
+
+                <div className="space-y-8">
+                  {/* Phone Input */}
+                  <div className="space-y-3">
+                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-2">Mobile Number</label>
+                    <div className="relative group">
+                       <div className={`absolute left-6 top-1/2 -translate-y-1/2 font-black transition-colors ${phone.length === 10 ? "text-indigo-600" : "text-slate-300 group-hover:text-slate-400"}`}>+91</div>
+                       <input 
+                         type="tel" 
+                         inputMode="numeric"
+                         placeholder="XXXXX XXXXX"
+                         maxLength="10"
+                         className={`w-full pl-16 pr-8 py-5 rounded-3xl bg-slate-50 border-2 outline-none transition-all font-black text-lg ${error ? "border-red-400 bg-red-50" : "border-slate-50 focus:border-indigo-600 focus:bg-white focus:shadow-xl focus:shadow-indigo-100"}`}
+                         value={phone}
+                         onChange={handleChange}
+                         disabled={isLoading}
+                         autoFocus
+                       />
+                       {phone.length === 10 && (
+                         <div className="absolute right-6 top-1/2 -translate-y-1/2 text-emerald-500 animate-[zoom-in_0.3s_ease-out]">
+                            <HiShieldCheck size={24} />
+                         </div>
+                       )}
+                    </div>
+                    {error && (
+                      <p className="text-[10px] font-black text-red-500 uppercase tracking-widest ml-4 flex items-center gap-1 animate-pulse italic">
+                        <HiLightningBolt /> {error}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Submit Button */}
+                  <button 
+                    onClick={handleSendOtp}
+                    disabled={phone.length !== 10 || isLoading}
+                    className="w-full h-20 bg-indigo-600 hover:bg-slate-900 disabled:bg-slate-200 text-white rounded-3xl font-black text-lg transition-all shadow-2xl flex items-center justify-center gap-4 group active:scale-95 disabled:shadow-none disabled:cursor-not-allowed"
+                  >
+                    {isLoading ? (
+                      <div className="w-8 h-8 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
+                    ) : (
+                      <>
+                        CONTINUE TO SECURE OTP 
+                        <HiArrowRight className="text-2xl group-hover:translate-x-2 transition-transform duration-500" />
+                      </>
+                    )}
+                  </button>
+                </div>
+
+                <div className="mt-12 pt-12 border-t border-slate-50 text-center">
+                   <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-4">New here?</p>
+                   <Link to="/signup" className="text-sm font-black text-indigo-600 hover:text-slate-900 transition-colors uppercase tracking-[0.2em]">Create a partner account</Link>
+                </div>
+             </div>
           </div>
 
-          {/* Send OTP Button */}
-          <button
-            onClick={handleSendOtp}
-            disabled={phone.length !== 10 || isLoading}
-            className="w-full flex items-center justify-center gap-3 bg-purple-600 hover:bg-purple-700 disabled:bg-purple-400 
-                       active:scale-[0.985] transition-all py-4 rounded-2xl text-white font-semibold text-lg 
-                       shadow-lg shadow-purple-200 disabled:shadow-none disabled:cursor-not-allowed"
-          >
-            {isLoading ? (
-              <>
-                <svg
-                  className="animate-spin h-5 w-5 text-white"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  />
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-                  />
-                </svg>
-                Sending OTP...
-              </>
-            ) : (
-              <>
-                Send OTP
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={3}
-                  viewBox="0 0 24 24"
-                >
-                  <line x1="22" y1="2" x2="11" y2="13" />
-                  <polygon points="22 2 15 22 11 13 2 9 22 2" />
-                </svg>
-              </>
-            )}
-          </button>
-
-          {/* Terms */}
-          <p className="text-center text-xs text-gray-500 mt-8 leading-relaxed">
-            By continuing, you agree to our{" "}
-            <span className="text-purple-600 hover:underline cursor-pointer">
-              Terms of Service
-            </span>{" "}
-            and{" "}
-            <span className="text-purple-600 hover:underline cursor-pointer">
-              Privacy Policy
-            </span>
-            .
+          <p className="text-center text-[10px] font-black text-slate-300 uppercase tracking-[0.4em] mt-12">
+            Secure Shield Encryption • 2024
           </p>
         </div>
       </div>

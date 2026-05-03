@@ -1,80 +1,80 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { HiArrowRight, HiShieldCheck, HiLightningBolt, HiUsers, HiLightningBolt as HiFastForward } from "react-icons/hi";
 import heroImg from "../assets/image/hero.png";
+
 const Hero = () => {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950">
+      
+      {/* Dynamic Background Image with subtle parallax effect simulation */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105 animate-[pulse_8s_ease-in-out_infinite] opacity-40 blur-[2px]"
         style={{ backgroundImage: `url(${heroImg})` }}
       ></div>
 
-      {/* Darker Blackish Gradient Overlay (as requested) */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/70 to-black/60"></div>
+      {/* Modern Gradient Overlay - Premium Dark Identity */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-slate-950 via-slate-950/80 to-indigo-900/40"></div>
+      
+      {/* Animated Glow Orbs */}
+      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-indigo-600/20 rounded-full blur-[120px] animate-pulse"></div>
+      <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[150px] animate-pulse delay-700"></div>
 
-      {/* Main Content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-20 pb-16">
-        {/* Heading */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
-          Find Skilled Labour <br />
-          <span className="bg-gradient-to-r from-yellow-300 via-amber-300 to-yellow-400 bg-clip-text text-transparent">
-            Near You Instantly
-          </span>
-        </h1>
+      {/* Main Content Container */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-32 pb-20 flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
+        
+        {/* Left: Text Content */}
+        <div className="flex-1 text-center lg:text-left">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+             <HiLightningBolt className="text-amber-400" />
+             <span className="text-[10px] font-black text-white uppercase tracking-widest">New: Instant Matching Live</span>
+          </div>
 
-        {/* Subheading */}
-        <p className="mt-6 text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
-          Builder, Electrician, Plumber, Painter — sab ek jagah.
-          <br />
-          HireLabour ke saath apna kaam ab aur bhi aasaan.
-        </p>
-
-        {/* Buttons */}
-        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Link
-            to="/find-labour"
-            className="group bg-white text-black px-8 py-4 rounded-2xl font-semibold text-lg 
-                       flex items-center justify-center gap-3 hover:bg-gray-100 
-                       active:scale-95 transition-all duration-300 shadow-xl w-full sm:w-auto"
-          >
-            Find Labour
-            <span className="group-hover:translate-x-1 transition-transform">
-              →
+          <h1 className="text-5xl md:text-6xl lg:text-8xl font-black text-white leading-[1.05] tracking-tighter mb-8 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+            Build Your <br />
+            <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-500 bg-clip-text text-transparent italic">
+              Future Today.
             </span>
-          </Link>
+          </h1>
 
-          <Link
-            to="/signup"
-            className="group border-2 border-white text-white px-8 py-4 rounded-2xl font-semibold text-lg 
-                       hover:bg-white hover:text-black transition-all duration-300 
-                       active:scale-95 w-full sm:w-auto"
-          >
-            Join as Worker
-          </Link>
+          <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium mb-12 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-200">
+            Connecting India's finest skilled labor with professional projects. 
+            From commercial construction to home repairs — <span className="text-white font-bold underline decoration-indigo-500 decoration-2 underline-offset-4">find experts in seconds.</span>
+          </p>
+
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start items-center animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-300">
+            <Link
+              to="/signup"
+              className="group h-16 sm:h-20 px-10 bg-indigo-600 text-white rounded-3xl font-black text-lg flex items-center justify-center gap-4 hover:bg-white hover:text-indigo-600 transition-all duration-500 shadow-2xl shadow-indigo-500/20 active:scale-95 w-full sm:w-auto"
+            >
+              Get Started Now
+              <HiArrowRight className="text-2xl group-hover:translate-x-2 transition-transform duration-500" />
+            </Link>
+
+            <Link
+              to="/about"
+              className="h-16 sm:h-20 px-10 border-2 border-white/10 bg-white/5 backdrop-blur-md text-white rounded-3xl font-black text-lg hover:bg-white/10 transition-all duration-500 active:scale-95 w-full sm:w-auto"
+            >
+              Explore Services
+            </Link>
+          </div>
+
+          {/* Featured Trust */}
+          <div className="mt-16 flex flex-wrap justify-center lg:justify-start gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-700 delay-500">
+             <div className="flex items-center gap-2 text-white font-black uppercase text-[10px] tracking-widest"><HiShieldCheck size={20} /> Verified Pros</div>
+             <div className="flex items-center gap-2 text-white font-black uppercase text-[10px] tracking-widest"><HiUsers size={20} /> Community First</div>
+             <div className="flex items-center gap-2 text-white font-black uppercase text-[10px] tracking-widest"><HiFastForward size={20} /> Rapid Response</div>
+          </div>
         </div>
 
-        {/* Trust Stats - Removed Numbers (Now Zero as requested) */}
-        <div className="mt-16 grid grid-cols-3 gap-8 text-center text-white/70 text-sm md:text-base">
-          <div>
-            <div className="font-semibold text-2xl md:text-3xl text-white">
-              0
-            </div>
-            <div className="mt-1">Workers</div>
-          </div>
-          <div>
-            <div className="font-semibold text-2xl md:text-3xl text-white">
-              0
-            </div>
-            <div className="mt-1">Cities</div>
-          </div>
-          <div>
-            <div className="font-semibold text-2xl md:text-3xl text-white">
-              0
-            </div>
-            <div className="mt-1">User</div>
-          </div>
-        </div>
+        {/* Right side is intentionally empty or could house other assets later */}
+      </div>
+
+      {/* Scroll Down Indicator */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30 animate-bounce">
+         <span className="text-[9px] font-black text-white uppercase tracking-[0.5em] rotate-90">Scroll</span>
+         <div className="w-[1px] h-12 bg-white"></div>
       </div>
     </div>
   );

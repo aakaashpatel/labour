@@ -9,6 +9,7 @@ import FindLabour from "../components/FindLabour";
 import Login from "./pages/Login";
 import OtpVerify from "./pages/OtpVerify";
 import Onboarding from "../pages/Onboarding";
+import Dashboard from "../pages/Dashboard";
 const AppRoutes = () => {
   return (
     <Routes>
@@ -26,6 +27,7 @@ const AppRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/verify-otp" element={<OtpVerify />} />
       <Route path="/onboarding" element={<Onboarding />} />
+      <Route path="/dashboard" element={<Dashboard />} />
     </Routes>
   );
 };
